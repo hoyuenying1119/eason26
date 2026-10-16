@@ -1,0 +1,418 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>陈奕迅 Recording Sessions 26场 · 选场互动版</title>
+<style>
+  :root{--bg:#0d0d12;--card:#17171f;--card2:#1e1e2a;--gold:#e8c15a;--red:#e0452c;--pick:#ff5040;--text:#f0ead9;--dim:#9a93a8;--line:#2c2c3d}
+  *{margin:0;padding:0;box-sizing:border-box}
+  body{background:var(--bg);color:var(--text);font-family:"PingFang SC","Microsoft YaHei","Noto Sans SC",sans-serif;line-height:1.6}
+  .wrap{max-width:920px;margin:0 auto;padding:0 16px}
+  header{padding:52px 0 28px;text-align:center}
+  .tag{display:inline-block;font-size:12px;letter-spacing:3px;color:var(--gold);border:1px solid var(--gold);border-radius:999px;padding:4px 14px;margin-bottom:16px}
+  h1{font-size:clamp(26px,6vw,40px);font-weight:800;line-height:1.25}
+  h1 span{color:var(--gold)}
+  .sub{color:var(--dim);margin-top:10px;font-size:15px}
+  .meta{display:flex;flex-wrap:wrap;gap:10px;justify-content:center;margin-top:22px}
+  .meta div{background:var(--card);border:1px solid var(--line);border-radius:12px;padding:10px 16px;font-size:13px;color:var(--dim)}
+  .meta b{color:var(--text);display:block;font-size:15px}
+  .notice{margin:22px 0 0;background:linear-gradient(135deg,#2a1c10,#1a1410);border:1px solid #6b4d1f;border-radius:14px;padding:14px 18px;font-size:14px}
+  .notice b{color:var(--gold)}
+  .howto{margin:14px 0 0;background:#14141c;border:1px dashed #3d3d52;border-radius:14px;padding:14px 18px;font-size:13.5px;color:var(--dim)}
+  .howto b{color:var(--pick)}
+  .howto i{color:var(--gold);font-style:normal}
+  section{margin-top:44px}
+  h2{font-size:22px;margin-bottom:6px;display:flex;align-items:center;gap:10px}
+  h2::before{content:"";width:6px;height:22px;background:var(--red);border-radius:3px}
+  .hint{color:var(--dim);font-size:13px;margin-bottom:16px}
+  .show{display:flex;gap:14px;background:var(--card);border:1px solid var(--line);border-radius:16px;padding:18px 16px 18px 20px;margin-bottom:14px}
+  .show.gold{border-color:var(--gold);background:linear-gradient(135deg,#241c0c,var(--card))}
+  .show.red{border-color:var(--red);background:linear-gradient(135deg,#2a1210,var(--card))}
+  .show.ranked{border-color:var(--gold);box-shadow:0 0 0 1px var(--gold) inset}
+  .date{flex:0 0 58px;text-align:center}
+  .date .d{font-size:24px;font-weight:800;color:var(--gold)}
+  .show.red .date .d{color:var(--red)}
+  .date .w{font-size:12px;color:var(--dim)}
+  .body{flex:1;min-width:0}
+  .album{font-size:17px;font-weight:700}
+  .album small{color:var(--dim);font-weight:400;font-size:13px;margin-left:6px}
+  .badge{display:inline-block;font-size:11px;color:#0d0d12;background:var(--gold);border-radius:6px;padding:1px 8px;margin-left:8px;vertical-align:2px}
+  .badge.red{background:var(--red);color:#fff}
+  .hl{color:var(--gold);font-size:15px;margin-top:4px}
+  .songs{color:var(--dim);font-size:14px;margin-top:8px;line-height:2.0}
+  .song{padding:2px 5px;border-radius:6px;cursor:pointer;transition:all .15s;-webkit-tap-highlight-color:transparent}
+  .song:hover{background:#2a2a3a;color:var(--text)}
+  .song.picked{color:var(--pick);font-weight:700;background:rgba(255,80,64,.12)}
+  .sgtext{color:var(--dim)}
+  .sglabel{display:inline-block;color:#8a84a0;font-size:13px;font-weight:700;margin-top:4px}
+  .rankcol{flex:0 0 62px;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:6px;border-left:1px dashed var(--line);padding-left:10px}
+  .rlab{font-size:10px;color:#55506a;text-align:center;line-height:1.3}
+  .rankbtn{width:46px;height:46px;border-radius:50%;border:2px dashed #4a4a5e;background:none;color:#6a6a80;font-size:22px;cursor:pointer;transition:all .15s;font-family:inherit;-webkit-tap-highlight-color:transparent}
+  .rankbtn:hover{border-color:var(--gold);color:var(--gold)}
+  .rankbtn.ranked{border:2px solid var(--gold);background:var(--gold);color:#0d0d12;font-weight:800;font-size:19px}
+  #mylistSec{margin-top:44px}
+  .mitem{display:flex;align-items:center;gap:14px;background:var(--card);border:1px solid var(--line);border-radius:12px;padding:13px 16px;margin-bottom:10px;cursor:pointer;transition:border-color .15s}
+  .mitem:hover{border-color:var(--gold)}
+  .mnum{flex:0 0 34px;height:34px;border-radius:50%;background:var(--gold);color:#0d0d12;font-weight:800;font-size:16px;display:flex;align-items:center;justify-content:center}
+  .mdate{flex:0 0 66px;font-weight:700;color:var(--gold);font-size:16px}
+  .malbum{flex:1;font-size:15px}
+  .mx{flex:0 0 auto;color:#55506a;font-size:18px}
+  .mitem:hover .mx{color:var(--pick)}
+  .mempty{border:1px dashed var(--line);border-radius:12px;padding:26px;text-align:center;color:var(--dim);font-size:14px;line-height:1.9}
+  .tip{margin-top:44px;background:var(--card2);border:1px solid var(--line);border-radius:16px;padding:20px 22px;font-size:14px}
+  .tip h3{font-size:16px;margin-bottom:10px;color:var(--gold)}
+  .tip li{margin:6px 0 6px 18px;color:var(--dim)}
+  .tip li b{color:var(--text)}
+  footer{margin-top:44px;text-align:center;color:var(--dim);font-size:12px;line-height:1.8;padding-bottom:40px}
+  .mweek{flex:0 0 38px;color:var(--dim);font-size:13px}
+  @media(max-width:560px){
+    .mweek{flex-basis:32px;font-size:12px}
+    .show{padding:14px 10px 14px 14px;gap:10px}
+    .date{flex-basis:48px}.date .d{font-size:19px}
+    .rankcol{flex-basis:54px;padding-left:8px}
+    .rankbtn{width:42px;height:42px}
+    .album{font-size:15.5px}.songs{font-size:13.5px}
+    .mdate{flex-basis:56px;font-size:14px}
+  }
+</style>
+</head>
+<body>
+<div class="wrap">
+
+<header>
+  <div class="tag">麦当劳呈献 · 26场限定</div>
+  <h1>Recording Sessions<br><span>with Mr. Eason Chan</span></h1>
+  <p class="sub">每晚现场重录一张指定专辑 · 26场内容完全不重复 · 选场互动版</p>
+  <div class="meta">
+    <div><b>2026.12.12 – 2027.2.20</b>演出日期</div>
+    <div><b>香港演艺学院歌剧院</b>演出地点</div>
+    <div><b>每晚8:00 / 约100分钟</b>演出时间</div>
+    <div><b>HK$1280 / 980</b>门票价格</div>
+    <div><b>10.28 11:00 起</b>Cityline 抽签登记</div>
+  </div>
+  <div class="notice">⚠️ 购票前务必到 Cityline 核对<b>场次 ↔ 专辑</b>对应表；座位先到先得。</div>
+  <div class="howto">💡 使用方法：<b>点歌名</b>＝标记心水曲目（变红，再点取消）｜<i>点右侧 ＋</i>＝加入购买意愿，按钮立刻变成名次（按点击先后 1→26，再点取消、名次自动递补），页面底部「我的购买意愿清单」实时汇总。数据只存在你自己的设备上。</div>
+</header>
+
+<section>
+  <h2>三个彩蛋场</h2>
+  <p class="hint">仅作亮点介绍，不参与点选 —— 这三场已按日期归入下方时间线，可正常标记和排名</p>
+  <div class="show gold">
+      <div class="date"><div class="d">16</div><div class="w">周三</div></div>
+      <div class="body">
+        <div class="album">I Had A Great Time!<small>2004 录完被雪藏 · 从未发行</small><span class="badge ">消失22年 · 全球首唱</span></div>
+        
+        <div class="songs"><span class="sgtext">一切还好</span>、<span class="sgtext">万佛朝宗</span>、<span class="sgtext">冤气</span>、<span class="sgtext">八里公路</span>、<span class="sgtext">放下来</span>、<span class="sgtext">开不了心</span>、<span class="sgtext">24</span>、<span class="sgtext">不求人</span>、<span class="sgtext">最后今晚</span>、<span class="sgtext">爱你入骨</span></div><div class="songs" style="font-size:12px;opacity:.7;margin-top:6px">十首歌全由林夕作词——这张「胎死腹中」的专辑第一次以完整面目现世，注定是最难抢的一场</div>
+      </div>
+    </div><div class="show gold">
+      <div class="date"><div class="d">24</div><div class="w">周四</div></div>
+      <div class="body">
+        <div class="album">4 A Change & Hits + 幸福 + 新生活<small>新曲+精选 打包场</small></div>
+        
+        <div class="songs"><span class="sglabel">◆ 4 A Change & Hits 新歌</span> <span class="sgtext">King Kong</span>、<span class="sgtext">Lonely Christmas</span>、<span class="sgtext">第一类接触</span>、<span class="sgtext">少见不怪</span><br><span class="sglabel">◆ 幸福 EP</span> <span class="sgtext">幸福摩天轮</span>、<span class="sgtext">时光倒流二十年</span>、<span class="sgtext">春光乍泄</span>、<span class="sgtext">垃圾</span>、<span class="sgtext">非走不可</span><br><span class="sglabel">◆ 新生活</span> <span class="sgtext">终于一百日</span>、<span class="sgtext">新生活</span>、<span class="sgtext">美满人生</span>、<span class="sgtext">超人的主题曲</span></div>
+      </div>
+    </div><div class="show gold">
+      <div class="date"><div class="d">10</div><div class="w">周日</div></div>
+      <div class="body">
+        <div class="album">Other Solids?<small>= Solidays 新曲+精选（2008）官方别称</small></div>
+        
+        <div class="songs"><span class="sglabel">◆ 新歌</span> <span class="sgtext">歌颂</span>、<span class="sgtext">后台</span><br><span class="sglabel">◆ 精选包括</span> <span class="sgtext">阿牛</span>、<span class="sgtext">浮夸</span>、<span class="sgtext">葡萄成熟时</span>、<span class="sgtext">最佳损友</span>、<span class="sgtext">富士山下</span>、<span class="sgtext">Crying in the Party</span>、<span class="sgtext">等27首</span></div><div class="songs" style="font-size:12px;opacity:.7;margin-top:6px">新歌 + U87 至「认了吧」时期 25 首精选</div>
+      </div>
+    </div>
+</section>
+
+<section>
+  <h2>2026 年 12 月</h2>
+  <p class="hint">10 场（含彩蛋场 12/16、12/24）</p>
+  <div class="show " id="show-1212" data-id="1212">
+      <div class="date"><div class="d">12</div><div class="w">周六</div></div>
+      <div class="body">
+        <div class="album">陈奕迅 · 同名专辑<small>1996 首张大碟</small></div>
+        <div class="hl">主打 · 时代曲</div>
+        <div class="songs"><span class="song" data-si="0">时代曲</span>、<span class="song" data-si="1">伤信</span>、<span class="song" data-si="2">游离份子</span>、<span class="song" data-si="3">我怕你不肯</span>、<span class="song" data-si="4">有意无意</span>、<span class="song" data-si="5">安守本分</span>、<span class="song" data-si="6">爱情，幼稚！</span>、<span class="song" data-si="7">从未痴心</span>、<span class="song" data-si="8">其实我记得（与杨千嬅）</span>、<span class="song" data-si="9">当心中有恋爱感觉</span></div>
+      </div><div class="rankcol"><button class="rankbtn" title="加入购买意愿">＋</button><span class="rlab">购买<br>意愿</span></div>
+    </div><div class="show " id="show-1213" data-id="1213">
+      <div class="date"><div class="d">13</div><div class="w">周日</div></div>
+      <div class="body">
+        <div class="album">与我常在<small>1997</small></div>
+        <div class="hl">主打 · 与我常在</div>
+        <div class="songs"><span class="song" data-si="0">现场直播</span>、<span class="song" data-si="1">与我常在</span>、<span class="song" data-si="2">爱没有左右</span>、<span class="song" data-si="3">生命有几好</span>、<span class="song" data-si="4">抱拥这分钟</span>、<span class="song" data-si="5">伴游</span>、<span class="song" data-si="6">跟我走好吗</span>、<span class="song" data-si="7">今天等我来</span>、<span class="song" data-si="8">敌人</span>、<span class="song" data-si="9">那一夜有没有说</span></div>
+      </div><div class="rankcol"><button class="rankbtn" title="加入购买意愿">＋</button><span class="rlab">购买<br>意愿</span></div>
+    </div><div class="show gold" id="show-1216" data-id="1216">
+      <div class="date"><div class="d">16</div><div class="w">周三</div></div>
+      <div class="body">
+        <div class="album">I Had A Great Time!<small>2004 录完被雪藏 · 从未发行</small><span class="badge ">消失22年 · 全球首唱</span></div>
+        
+        <div class="songs"><span class="song" data-si="0">一切还好</span>、<span class="song" data-si="1">万佛朝宗</span>、<span class="song" data-si="2">冤气</span>、<span class="song" data-si="3">八里公路</span>、<span class="song" data-si="4">放下来</span>、<span class="song" data-si="5">开不了心</span>、<span class="song" data-si="6">24</span>、<span class="song" data-si="7">不求人</span>、<span class="song" data-si="8">最后今晚</span>、<span class="song" data-si="9">爱你入骨</span></div><div class="songs" style="font-size:12px;opacity:.7;margin-top:6px">十首歌全由林夕作词——这张「胎死腹中」的专辑第一次以完整面目现世，注定是最难抢的一场</div>
+      </div><div class="rankcol"><button class="rankbtn" title="加入购买意愿">＋</button><span class="rlab">购买<br>意愿</span></div>
+    </div><div class="show " id="show-1217" data-id="1217">
+      <div class="date"><div class="d">17</div><div class="w">周四</div></div>
+      <div class="body">
+        <div class="album">The Easy Ride<small>2001</small></div>
+        <div class="hl">主打 · 大开眼戒</div>
+        <div class="songs"><span class="song" data-si="0">阿司匹林</span>、<span class="song" data-si="1">冲口而出</span>、<span class="song" data-si="2">大开眼戒</span>、<span class="song" data-si="3">我不好爱</span>、<span class="song" data-si="4">热带雨林</span>、<span class="song" data-si="5">人工智能</span>、<span class="song" data-si="6">结束开始</span>、<span class="song" data-si="7">活着多好</span>、<span class="song" data-si="8">他一个人</span>、<span class="song" data-si="9">不知所谓</span>、<span class="song" data-si="10">等全碟曲目</span></div>
+      </div><div class="rankcol"><button class="rankbtn" title="加入购买意愿">＋</button><span class="rlab">购买<br>意愿</span></div>
+    </div><div class="show " id="show-1219" data-id="1219">
+      <div class="date"><div class="d">19</div><div class="w">周六</div></div>
+      <div class="body">
+        <div class="album">H³M<small>2009</small></div>
+        <div class="hl">主打 · 七百年后 · 沙龙</div>
+        <div class="songs"><span class="song" data-si="0">Allegro, Opus 3.3 a.m.</span>、<span class="song" data-si="1">还有什么可以送给你</span>、<span class="song" data-si="2">于心有愧</span>、<span class="song" data-si="3">今天只做一件事</span>、<span class="song" data-si="4">一个旅人</span>、<span class="song" data-si="5">七百年后</span>、<span class="song" data-si="6">Life Goes On</span>、<span class="song" data-si="7">太阳照常升起</span>、<span class="song" data-si="8">不来也不去</span>、<span class="song" data-si="9">沙龙</span></div>
+      </div><div class="rankcol"><button class="rankbtn" title="加入购买意愿">＋</button><span class="rlab">购买<br>意愿</span></div>
+    </div><div class="show " id="show-1220" data-id="1220">
+      <div class="date"><div class="d">20</div><div class="w">周日</div></div>
+      <div class="body">
+        <div class="album">Taste the Atmosphere + Stranger Under My Skin<small>2010 / 2011 · 两EP打包</small></div>
+        <div class="hl">主打 · 苦瓜 · 因为爱情</div>
+        <div class="songs"><span class="sglabel">◆ Taste the Atmosphere</span> <span class="song" data-si="1">讲男讲女</span>、<span class="song" data-si="2">叶问风中转</span>、<span class="song" data-si="3">花花世界</span>、<span class="song" data-si="4">我杯茶</span>、<span class="song" data-si="5">超错</span><br><span class="sglabel">◆ Stranger Under My Skin</span> <span class="song" data-si="7">六月飞霜</span>、<span class="song" data-si="8">最后派对</span>、<span class="song" data-si="9">苦瓜</span>、<span class="song" data-si="10">沼气</span>、<span class="song" data-si="11">乐园</span>、<span class="song" data-si="12">等你爱我</span>、<span class="song" data-si="13">因为爱情</span></div>
+      </div><div class="rankcol"><button class="rankbtn" title="加入购买意愿">＋</button><span class="rlab">购买<br>意愿</span></div>
+    </div><div class="show " id="show-1223" data-id="1223">
+      <div class="date"><div class="d">23</div><div class="w">周三</div></div>
+      <div class="body">
+        <div class="album">不想放手<small>2008 · 国语</small></div>
+        <div class="hl">主打 · 不要说话</div>
+        <div class="songs"><span class="song" data-si="0">路…一直都在</span>、<span class="song" data-si="1">独居动物</span>、<span class="song" data-si="2">倒带人生</span>、<span class="song" data-si="3">Aren't You Glad</span>、<span class="song" data-si="4">7</span>、<span class="song" data-si="5">不要说话</span>、<span class="song" data-si="6">漂亮小姐</span>、<span class="song" data-si="7">臭美</span>、<span class="song" data-si="8">土星环</span>、<span class="song" data-si="9">然后怎样</span>、<span class="song" data-si="10">等全碟曲目</span></div>
+      </div><div class="rankcol"><button class="rankbtn" title="加入购买意愿">＋</button><span class="rlab">购买<br>意愿</span></div>
+    </div><div class="show gold" id="show-1224" data-id="1224">
+      <div class="date"><div class="d">24</div><div class="w">周四</div></div>
+      <div class="body">
+        <div class="album">4 A Change & Hits + 幸福 + 新生活<small>新曲+精选 打包场</small></div>
+        
+        <div class="songs"><span class="sglabel">◆ 4 A Change & Hits 新歌</span> <span class="song" data-si="1">King Kong</span>、<span class="song" data-si="2">Lonely Christmas</span>、<span class="song" data-si="3">第一类接触</span>、<span class="song" data-si="4">少见不怪</span><br><span class="sglabel">◆ 幸福 EP</span> <span class="song" data-si="6">幸福摩天轮</span>、<span class="song" data-si="7">时光倒流二十年</span>、<span class="song" data-si="8">春光乍泄</span>、<span class="song" data-si="9">垃圾</span>、<span class="song" data-si="10">非走不可</span><br><span class="sglabel">◆ 新生活</span> <span class="song" data-si="12">终于一百日</span>、<span class="song" data-si="13">新生活</span>、<span class="song" data-si="14">美满人生</span>、<span class="song" data-si="15">超人的主题曲</span></div>
+      </div><div class="rankcol"><button class="rankbtn" title="加入购买意愿">＋</button><span class="rlab">购买<br>意愿</span></div>
+    </div><div class="show " id="show-1226" data-id="1226">
+      <div class="date"><div class="d">26</div><div class="w">周六</div></div>
+      <div class="body">
+        <div class="album">黑·白·灰<small>2003 · 国语</small></div>
+        <div class="hl">主打 · 十年</div>
+        <div class="songs"><span class="song" data-si="0">阿怪</span>、<span class="song" data-si="1">我们都寂寞</span>、<span class="song" data-si="2">兄妹</span>、<span class="song" data-si="3">十年</span>、<span class="song" data-si="4">要你的</span>、<span class="song" data-si="5">世界</span>、<span class="song" data-si="6">谢谢</span>、<span class="song" data-si="7">像一句广告</span>、<span class="song" data-si="8">寂寞奏鸣曲</span>、<span class="song" data-si="9">Last Order</span></div>
+      </div><div class="rankcol"><button class="rankbtn" title="加入购买意愿">＋</button><span class="rlab">购买<br>意愿</span></div>
+    </div><div class="show " id="show-1227" data-id="1227">
+      <div class="date"><div class="d">27</div><div class="w">周日</div></div>
+      <div class="body">
+        <div class="album">Special Thanks To...<small>2002 · 国语</small></div>
+        <div class="hl">主打 · 你的背包 · 谢谢侬</div>
+        <div class="songs"><span class="song" data-si="0">你的背包</span>、<span class="song" data-si="1">谢谢侬</span>、<span class="song" data-si="2">男人的错</span>、<span class="song" data-si="3">你会不会</span>、<span class="song" data-si="4">故事</span>、<span class="song" data-si="5">想哭</span>、<span class="song" data-si="6">人造卫星</span>、<span class="song" data-si="7">没有手机的日子</span>、<span class="song" data-si="8">跳蚤市场</span>、<span class="song" data-si="9">狂人日记</span>、<span class="song" data-si="10">给爱丽斯</span>、<span class="song" data-si="11">等全碟曲目</span></div>
+      </div><div class="rankcol"><button class="rankbtn" title="加入购买意愿">＋</button><span class="rlab">购买<br>意愿</span></div>
+    </div>
+</section>
+
+<section>
+  <h2>2027 年 1 月</h2>
+  <p class="hint">10 场（含彩蛋场 1/10）</p>
+  <div class="show " id="show-0106" data-id="0106">
+      <div class="date"><div class="d">6</div><div class="w">周三</div></div>
+      <div class="body">
+        <div class="album">What's Going On...?<small>2006</small></div>
+        <div class="hl">主打 · 富士山下</div>
+        <div class="songs"><span class="song" data-si="0">裙下之臣</span>、<span class="song" data-si="1">最后的嬉皮士</span>、<span class="song" data-si="2">白玫瑰</span>、<span class="song" data-si="3">黑择明</span>、<span class="song" data-si="4">富士山下</span>、<span class="song" data-si="5">不如不见</span>、<span class="song" data-si="6">心深伤透</span>、<span class="song" data-si="7">解药</span>、<span class="song" data-si="8">天公地道</span>、<span class="song" data-si="9">粤语残片</span></div>
+      </div><div class="rankcol"><button class="rankbtn" title="加入购买意愿">＋</button><span class="rlab">购买<br>意愿</span></div>
+    </div><div class="show " id="show-0107" data-id="0107">
+      <div class="date"><div class="d">7</div><div class="w">周四</div></div>
+      <div class="body">
+        <div class="album">认了吧<small>2007 · 国语</small></div>
+        <div class="hl">主打 · 爱情转移 · 好久不见</div>
+        <div class="songs"><span class="song" data-si="0">烟味</span>、<span class="song" data-si="1">淘汰</span>、<span class="song" data-si="2">快乐男生</span>、<span class="song" data-si="3">红玫瑰</span>、<span class="song" data-si="4">月黑风高</span>、<span class="song" data-si="5">爱情转移</span>、<span class="song" data-si="6">好久不见</span>、<span class="song" data-si="7">爱是一本书</span>、<span class="song" data-si="8">第一个雅皮士</span>、<span class="song" data-si="9">白色球鞋</span>、<span class="song" data-si="10">月球上的人</span></div>
+      </div><div class="rankcol"><button class="rankbtn" title="加入购买意愿">＋</button><span class="rlab">购买<br>意愿</span></div>
+    </div><div class="show " id="show-0109" data-id="0109">
+      <div class="date"><div class="d">9</div><div class="w">周六</div></div>
+      <div class="body">
+        <div class="album">Life Continues... + Time Flies<small>2006 / 2010 · 两EP打包</small></div>
+        <div class="hl">主打 · 最佳损友 · 陀飞轮</div>
+        <div class="songs"><span class="sglabel">◆ Life Continues...</span> <span class="song" data-si="1">低调</span>、<span class="song" data-si="2">人车志</span>、<span class="song" data-si="3">最佳损友</span>、<span class="song" data-si="4">暴殄天物</span>、<span class="song" data-si="5">落花流水</span>、<span class="song" data-si="6">大得太快</span>、<span class="song" data-si="7">想听</span><br><span class="sglabel">◆ Time Flies</span> <span class="song" data-si="9">无人之境</span>、<span class="song" data-si="10">大人</span>、<span class="song" data-si="11">一丝不挂</span>、<span class="song" data-si="12">陀飞轮</span>、<span class="song" data-si="13">心腹</span>、<span class="song" data-si="14">味之素</span></div>
+      </div><div class="rankcol"><button class="rankbtn" title="加入购买意愿">＋</button><span class="rlab">购买<br>意愿</span></div>
+    </div><div class="show gold" id="show-0110" data-id="0110">
+      <div class="date"><div class="d">10</div><div class="w">周日</div></div>
+      <div class="body">
+        <div class="album">Other Solids?<small>= Solidays 新曲+精选（2008）官方别称</small></div>
+        
+        <div class="songs"><span class="sglabel">◆ 新歌</span> <span class="song" data-si="1">歌颂</span>、<span class="song" data-si="2">后台</span><br><span class="sglabel">◆ 精选包括</span> <span class="song" data-si="4">阿牛</span>、<span class="song" data-si="5">浮夸</span>、<span class="song" data-si="6">葡萄成熟时</span>、<span class="song" data-si="7">最佳损友</span>、<span class="song" data-si="8">富士山下</span>、<span class="song" data-si="9">Crying in the Party</span>、<span class="song" data-si="10">等27首</span></div><div class="songs" style="font-size:12px;opacity:.7;margin-top:6px">新歌 + U87 至「认了吧」时期 25 首精选</div>
+      </div><div class="rankcol"><button class="rankbtn" title="加入购买意愿">＋</button><span class="rlab">购买<br>意愿</span></div>
+    </div><div class="show " id="show-0123" data-id="0123">
+      <div class="date"><div class="d">23</div><div class="w">周六</div></div>
+      <div class="body">
+        <div class="album">天佑爱人<small>1999</small></div>
+        <div class="hl">主打 · 每一个明天 · 贝多芬与我</div>
+        <div class="songs"><span class="song" data-si="0">昨日</span>、<span class="song" data-si="1">今日</span>、<span class="song" data-si="2">每一个明天</span>、<span class="song" data-si="3">眼眉调</span>、<span class="song" data-si="4">一</span>、<span class="song" data-si="5">第五个现代化</span>、<span class="song" data-si="6">快高长大</span>、<span class="song" data-si="7">如果这一秒钟你跟我讲你不爱我</span>、<span class="song" data-si="8">我的世界末日</span>、<span class="song" data-si="9">贝多芬与我</span></div>
+      </div><div class="rankcol"><button class="rankbtn" title="加入购买意愿">＋</button><span class="rlab">购买<br>意愿</span></div>
+    </div><div class="show " id="show-0124" data-id="0124">
+      <div class="date"><div class="d">24</div><div class="w">周日</div></div>
+      <div class="body">
+        <div class="album">Listen To Eason Chan<small>2007</small></div>
+        <div class="hl">主打 · 演唱会 · Crying in the Party</div>
+        <div class="songs"><span class="song" data-si="0">玛利奥派对</span>、<span class="song" data-si="1">热岛小夜曲</span>、<span class="song" data-si="2">闪</span>、<span class="song" data-si="3">演唱会</span>、<span class="song" data-si="4">滑铁卢车站</span>、<span class="song" data-si="5">Crying in the Party</span>、<span class="song" data-si="6">狂热革命</span>、<span class="song" data-si="7">变色龙</span>、<span class="song" data-si="8">时代巨轮</span>、<span class="song" data-si="9">乜嘢啫</span>、<span class="song" data-si="10">兄弟（与刘德华）</span></div>
+      </div><div class="rankcol"><button class="rankbtn" title="加入购买意愿">＋</button><span class="rlab">购买<br>意愿</span></div>
+    </div><div class="show " id="show-0127" data-id="0127">
+      <div class="date"><div class="d">27</div><div class="w">周三</div></div>
+      <div class="body">
+        <div class="album">Nothing Really Matters<small>2000</small></div>
+        <div class="hl">主打 · 黑夜不再来</div>
+        <div class="songs"><span class="song" data-si="0">送院途中</span>、<span class="song" data-si="1">黑夜不再来</span>、<span class="song" data-si="2">美丽有罪</span>、<span class="song" data-si="3">戏迷情人</span>、<span class="song" data-si="4">和平饭店</span>、<span class="song" data-si="5">我感激</span>、<span class="song" data-si="6">到此一游</span>、<span class="song" data-si="7">当这地球没有花</span>、<span class="song" data-si="8">Made in Hong Kong</span>、<span class="song" data-si="9">爱上你是我眼睛的错</span></div>
+      </div><div class="rankcol"><button class="rankbtn" title="加入购买意愿">＋</button><span class="rlab">购买<br>意愿</span></div>
+    </div><div class="show " id="show-0128" data-id="0128">
+      <div class="date"><div class="d">28</div><div class="w">周四</div></div>
+      <div class="body">
+        <div class="album">怎么样<small>2005 · 国语</small></div>
+        <div class="hl">主打 · 不然你要我怎么样</div>
+        <div class="songs"><span class="song" data-si="0">不能再等待</span>、<span class="song" data-si="1">对不起谢谢</span>、<span class="song" data-si="2">Hippie</span>、<span class="song" data-si="3">不然你要我怎么样</span>、<span class="song" data-si="4">不睡</span>、<span class="song" data-si="5">一夜销魂</span>、<span class="song" data-si="6">浮城</span>、<span class="song" data-si="7">早开的长途班</span>、<span class="song" data-si="8">听听</span>、<span class="song" data-si="9">人神斗</span></div>
+      </div><div class="rankcol"><button class="rankbtn" title="加入购买意愿">＋</button><span class="rlab">购买<br>意愿</span></div>
+    </div><div class="show " id="show-0130" data-id="0130">
+      <div class="date"><div class="d">30</div><div class="w">周六</div></div>
+      <div class="body">
+        <div class="album">The Line-Up<small>2002 · 双CD</small></div>
+        <div class="hl">主打 · 明年今日 · 人来人往 · 1874</div>
+        <div class="songs"><span class="song" data-si="0">心里有鬼</span>、<span class="song" data-si="1">我有我爱你</span>、<span class="song" data-si="2">明年今日</span>、<span class="song" data-si="3">人来人往</span>、<span class="song" data-si="4">季军</span>、<span class="song" data-si="5">随意门</span>、<span class="song" data-si="6">1874</span>、<span class="song" data-si="7">防不胜防</span>、<span class="song" data-si="8">两名男子街头相遇</span>、<span class="song" data-si="9">黑面</span></div>
+      </div><div class="rankcol"><button class="rankbtn" title="加入购买意愿">＋</button><span class="rlab">购买<br>意愿</span></div>
+    </div><div class="show " id="show-0131" data-id="0131">
+      <div class="date"><div class="d">31</div><div class="w">周日</div></div>
+      <div class="body">
+        <div class="album">Live For Today<small>2003</small></div>
+        <div class="hl">主打 · 十面埋伏 · 岁月如歌</div>
+        <div class="songs"><span class="song" data-si="0">幸灾乐祸</span>、<span class="song" data-si="1">Katrina</span>、<span class="song" data-si="2">十面埋伏</span>、<span class="song" data-si="3">呀边个边个</span>、<span class="song" data-si="4">小孩不懂怕</span>、<span class="song" data-si="5">谎言</span>、<span class="song" data-si="6">真相</span>、<span class="song" data-si="7">猜情寻</span>、<span class="song" data-si="8">忘记歌词</span>、<span class="song" data-si="9">New Order</span>、<span class="song" data-si="10">岁月如歌</span></div>
+      </div><div class="rankcol"><button class="rankbtn" title="加入购买意愿">＋</button><span class="rlab">购买<br>意愿</span></div>
+    </div>
+</section>
+
+<section>
+  <h2>2027 年 2 月</h2>
+  <p class="hint">6 场 · 2/20《U87》压轴</p>
+  <div class="show " id="show-0212" data-id="0212">
+      <div class="date"><div class="d">12</div><div class="w">周五</div></div>
+      <div class="body">
+        <div class="album">打得火热<small>2000</small></div>
+        <div class="hl">主打 · 打得火热 · K歌之王</div>
+        <div class="songs"><span class="song" data-si="0">打得火热</span>、<span class="song" data-si="1">K歌之王</span>、<span class="song" data-si="2">活跃症</span>、<span class="song" data-si="3">低等动物</span>、<span class="song" data-si="4">新广告歌</span>、<span class="song" data-si="5">美丽谎言</span>、<span class="song" data-si="6">绵绵</span>、<span class="song" data-si="7">吹微风</span>、<span class="song" data-si="8">温室效应</span>、<span class="song" data-si="9">下周同样时间（再见！）</span></div>
+      </div><div class="rankcol"><button class="rankbtn" title="加入购买意愿">＋</button><span class="rlab">购买<br>意愿</span></div>
+    </div><div class="show " id="show-0213" data-id="0213">
+      <div class="date"><div class="d">13</div><div class="w">周六</div></div>
+      <div class="body">
+        <div class="album">It's me 反正是我<small>2001 · 国语</small></div>
+        <div class="hl">主打 · K歌之王（国） · 爱是怀疑</div>
+        <div class="songs"><span class="song" data-si="0">Because You're Good To Me</span>、<span class="song" data-si="1">低等动物</span>、<span class="song" data-si="2">不如这样</span>、<span class="song" data-si="3">爱是怀疑</span>、<span class="song" data-si="4">我也不会那么做</span>、<span class="song" data-si="5">K歌之王（国）</span>、<span class="song" data-si="6">没有你</span>、<span class="song" data-si="7">冤家（周杰伦作曲）</span>、<span class="song" data-si="8">全世界失眠</span>、<span class="song" data-si="9">Good Times</span></div>
+      </div><div class="rankcol"><button class="rankbtn" title="加入购买意愿">＋</button><span class="rlab">购买<br>意愿</span></div>
+    </div><div class="show " id="show-0216" data-id="0216">
+      <div class="date"><div class="d">16</div><div class="w">周二</div></div>
+      <div class="body">
+        <div class="album">上五楼的快活<small>2009 · 国语</small></div>
+        <div class="hl">主打 · 从何说起</div>
+        <div class="songs"><span class="song" data-si="0">在你身边</span>、<span class="song" data-si="1">这样的一个麻烦</span>、<span class="song" data-si="2">多少</span>、<span class="song" data-si="3">Nothing Ever Happened</span>、<span class="song" data-si="4">你为什么哭了呢</span>、<span class="song" data-si="5">谋情害命</span>、<span class="song" data-si="6">我甲你（台语）</span>、<span class="song" data-si="7">心的距离</span>、<span class="song" data-si="8">床头灯</span>、<span class="song" data-si="9">给你</span>、<span class="song" data-si="10">从何说起</span></div>
+      </div><div class="rankcol"><button class="rankbtn" title="加入购买意愿">＋</button><span class="rlab">购买<br>意愿</span></div>
+    </div><div class="show " id="show-0217" data-id="0217">
+      <div class="date"><div class="d">17</div><div class="w">周三</div></div>
+      <div class="body">
+        <div class="album">我的快乐时代<small>1998</small></div>
+        <div class="hl">主打 · 天下无双 · 黄金时代</div>
+        <div class="songs"><span class="song" data-si="0">我的快乐时代</span>、<span class="song" data-si="1">我什么都没有</span>、<span class="song" data-si="2">天下无双</span>、<span class="song" data-si="3">黄金时代</span>、<span class="song" data-si="4">新曲+精选</span>、<span class="song" data-si="5">愈想愈无谓</span>、<span class="song" data-si="6">相信相依</span>、<span class="song" data-si="7">两种讲法</span>、<span class="song" data-si="8">请相信我</span>、<span class="song" data-si="9">反高潮</span>、<span class="song" data-si="10">多一点</span></div>
+      </div><div class="rankcol"><button class="rankbtn" title="加入购买意愿">＋</button><span class="rlab">购买<br>意愿</span></div>
+    </div><div class="show " id="show-0219" data-id="0219">
+      <div class="date"><div class="d">19</div><div class="w">周五</div></div>
+      <div class="body">
+        <div class="album">Shall We Dance? Shall We Talk!<small>2001</small></div>
+        <div class="hl">主打 · Shall We Talk · 单车</div>
+        <div class="songs"><span class="song" data-si="0">Shall We Dance</span>、<span class="song" data-si="1">Shall We Talk</span>、<span class="song" data-si="2">2001太空漫游</span>、<span class="song" data-si="3">失恋太少</span>、<span class="song" data-si="4">单车</span>、<span class="song" data-si="5">天使的礼物</span>、<span class="song" data-si="6">怪物</span>、<span class="song" data-si="7">孤独探戈</span>、<span class="song" data-si="8">信心花舍</span>、<span class="song" data-si="9">黑暗中漫舞</span>、<span class="song" data-si="10">等全碟曲目</span></div>
+      </div><div class="rankcol"><button class="rankbtn" title="加入购买意愿">＋</button><span class="rlab">购买<br>意愿</span></div>
+    </div><div class="show red" id="show-0220" data-id="0220">
+      <div class="date"><div class="d">20</div><div class="w">周六</div></div>
+      <div class="body">
+        <div class="album">U87<small>2005 · 时代杂志亚洲五佳专辑</small><span class="badge red">FINALE · 26场压轴</span></div>
+        <div class="hl">主打 · 浮夸 · 夕阳无限好 · 葡萄成熟时</div>
+        <div class="songs"><span class="song" data-si="0">烂</span>、<span class="song" data-si="1">阿牛</span>、<span class="song" data-si="2">夕阳无限好</span>、<span class="song" data-si="3">16月6日晴</span>、<span class="song" data-si="4">浮夸</span>、<span class="song" data-si="5">葡萄成熟时</span>、<span class="song" data-si="6">三个人的探戈</span>、<span class="song" data-si="7">不良嗜好</span>、<span class="song" data-si="8">怕死</span>、<span class="song" data-si="9">大个女</span>、<span class="song" data-si="10">新美人主义</span>、<span class="song" data-si="11">遇见了你</span></div>
+      </div><div class="rankcol"><button class="rankbtn" title="加入购买意愿">＋</button><span class="rlab">购买<br>意愿</span></div>
+    </div>
+</section>
+
+<div class="tip">
+  <h3>选场速看</h3>
+  <ul>
+    <li>🏆 <b>最稀缺</b>：12/16《I Had A Great Time!》——未发行专辑 22 年来首次完整演唱</li>
+    <li>🎤 <b>大热 K 歌</b>：2/20《U87》（浮夸、夕阳无限好）｜ 1/6 富士山下 ｜ 2/17 天下无双 ｜ 1/7 爱情转移、好久不见 ｜ 12/26 十年</li>
+    <li>🗣️ <b>国语专场</b>：12/23、12/26、12/27、1/7、1/28、2/13、2/16</li>
+    <li>💿 <b>稀有 EP / 精选</b>：1/9（最佳损友＋陀飞轮）｜ 12/20（苦瓜＋因为爱情）｜ 1/10（歌颂＋后台）</li>
+  </ul>
+</div>
+
+<section id="mylistSec">
+  <h2>我的购买意愿清单</h2>
+  <p class="hint" id="mylistHint"></p>
+  <div id="mylist"></div>
+</section>
+
+<footer>
+  本页由歌迷整理 · 曲目为对应专辑原版曲目，实际演出以现场为准<br>
+  场次对应专辑以 Cityline 官方售票页面为最终依据 · 抽签登记 2026.10.28 11:00 – 10.29 23:59
+</footer>
+
+</div>
+
+<script>
+const ALBUMS = {"1212": {"d": "261212", "w": "周六", "a": "陈奕迅 · 同名专辑"}, "1213": {"d": "261213", "w": "周日", "a": "与我常在"}, "1216": {"d": "261216", "w": "周三", "a": "I Had A Great Time!"}, "1217": {"d": "261217", "w": "周四", "a": "The Easy Ride"}, "1219": {"d": "261219", "w": "周六", "a": "H³M"}, "1220": {"d": "261220", "w": "周日", "a": "Taste the Atmosphere + Stranger Under My Skin"}, "1223": {"d": "261223", "w": "周三", "a": "不想放手"}, "1224": {"d": "261224", "w": "周四", "a": "4 A Change & Hits + 幸福 + 新生活"}, "1226": {"d": "261226", "w": "周六", "a": "黑·白·灰"}, "1227": {"d": "261227", "w": "周日", "a": "Special Thanks To..."}, "0106": {"d": "270106", "w": "周三", "a": "What's Going On...?"}, "0107": {"d": "270107", "w": "周四", "a": "认了吧"}, "0109": {"d": "270109", "w": "周六", "a": "Life Continues... + Time Flies"}, "0110": {"d": "270110", "w": "周日", "a": "Other Solids?"}, "0123": {"d": "270123", "w": "周六", "a": "天佑爱人"}, "0124": {"d": "270124", "w": "周日", "a": "Listen To Eason Chan"}, "0127": {"d": "270127", "w": "周三", "a": "Nothing Really Matters"}, "0128": {"d": "270128", "w": "周四", "a": "怎么样"}, "0130": {"d": "270130", "w": "周六", "a": "The Line-Up"}, "0131": {"d": "270131", "w": "周日", "a": "Live For Today"}, "0212": {"d": "270212", "w": "周五", "a": "打得火热"}, "0213": {"d": "270213", "w": "周六", "a": "It's me 反正是我"}, "0216": {"d": "270216", "w": "周二", "a": "上五楼的快活"}, "0217": {"d": "270217", "w": "周三", "a": "我的快乐时代"}, "0219": {"d": "270219", "w": "周五", "a": "Shall We Dance? Shall We Talk!"}, "0220": {"d": "270220", "w": "周六", "a": "U87"}};
+let picks = {}, rank = [];
+try{ picks = JSON.parse(localStorage.getItem("eason26_picks")||"{}") }catch(e){}
+try{ rank  = JSON.parse(localStorage.getItem("eason26_rank")||"[]") }catch(e){}
+
+const $ = s => document.querySelector(s);
+const $$ = s => [...document.querySelectorAll(s)];
+function save(){
+  localStorage.setItem("eason26_picks", JSON.stringify(picks));
+  localStorage.setItem("eason26_rank", JSON.stringify(rank));
+}
+
+/* ---- 曲目标记（仅时间线内的可点） ---- */
+$$(".show[data-id]").forEach(show=>{
+  const id = show.dataset.id;
+  if(!picks[id]) picks[id] = [];
+  show.querySelectorAll(".song").forEach(sp=>{
+    const i = +sp.dataset.si;
+    if(picks[id].includes(i)) sp.classList.add("picked");
+    sp.addEventListener("click", ()=>{
+      sp.classList.toggle("picked");
+      if(sp.classList.contains("picked")){ if(!picks[id].includes(i)) picks[id].push(i); }
+      else picks[id] = picks[id].filter(x=>x!==i);
+      save();
+    });
+  });
+});
+
+/* ---- 排名 ---- */
+$$(".rankbtn").forEach(btn=>{
+  btn.addEventListener("click", ()=>{
+    const id = btn.closest(".show").dataset.id;
+    const pos = rank.indexOf(id);
+    if(pos >= 0) rank.splice(pos,1); else rank.push(id);
+    save(); refresh();
+  });
+});
+
+/* ---- 按钮名次同步 + 底部汇总区 ---- */
+function refresh(){
+  $$(".rankbtn").forEach(btn=>{
+    const id = btn.closest(".show").dataset.id;
+    const pos = rank.indexOf(id);
+    btn.classList.toggle("ranked", pos>=0);
+    btn.textContent = pos>=0 ? (pos+1) : "＋";
+    btn.closest(".show").classList.toggle("ranked", pos>=0);
+  });
+  const box = $("#mylist");
+  $("#mylistHint").textContent = rank.length
+    ? "已排 " + rank.length + " 场 · 按 ＋ 的点击先后排名 · 点条目可移出"
+    : "还没选场次 —— 看到心水的场，点右侧的 ＋ 加进来，这里按排名实时汇总";
+  if(rank.length === 0){
+    box.innerHTML = '<div class="mempty">🛒 清单是空的<br><span style="font-size:12.5px">点任意场次右侧的 ＋ 加入购买意愿，点歌名可以标记心水曲目</span></div>';
+  } else {
+    box.innerHTML = "";
+    rank.forEach((id,i)=>{
+      const a = ALBUMS[id]; if(!a) return;
+      const m = document.createElement("div");
+      m.className = "mitem";
+      m.innerHTML = '<span class="mnum">'+(i+1)+'</span><span class="mdate">'+a.d+'</span><span class="mweek">'+a.w+'</span><span class="malbum">'+a.a+'</span><span class="mx">×</span>';
+      m.title = "点击移出清单";
+      m.onclick = ()=>{ rank = rank.filter(x=>x!==id); save(); refresh(); };
+      box.appendChild(m);
+    });
+  }
+}
+refresh();
+</script>
+</body>
+</html>
